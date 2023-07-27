@@ -79,7 +79,7 @@
             </div>
 
             <p class="promise-content-explain">
-              レスポンシブ対応、CSS設計にも注意を払いコードを書くことをお約束します。<br>
+              レスポンシブ対応、CSS設計などにも注意を払いコードを書くことをお約束します。<br>
               誰が、どの状態でサイト・コードを見ても理解できるようにすることが、サイトを見る方・修正する方にとって重要であると考えています。
             </p>
           </div>
@@ -119,24 +119,24 @@
 
       <div class="works-wrapper slider">
         <?php
-            if(have_posts()) :
-            while(have_posts()) :
-            the_post();
+          if(have_posts()) :
+          while(have_posts()) :
+          the_post();
         ?>
 
         <div class="works-content">
           <?php if(get_the_title() == 'Coming Soon'): ?>
           <a>
-            <?php else:  ?>
-            <!-- <a href="<?php the_permalink(); ?>"> -->
-            <?php endif; ?>
-            <?php the_post_thumbnail(null, array('class' => 'works-content-img')); ?>
-          </a>
+            <?php else: // coming soonでなければ ?>
+            <a href="<?php echo post_custom('リンク'); ?>">
+              <?php endif; ?>
+              <?php the_post_thumbnail(null, array('class' => 'works-content-img')); ?>
+            </a>
 
-          <p class="works-content-text c-vertical-bar">タイトル：<?php the_title(); ?></p>
-          <p class="works-content-text c-vertical-bar">制作期間：<?php echo post_custom('制作期間'); ?></p>
-          <p class="works-content-text c-vertical-bar">使用スキル：<?php echo post_custom('使用スキル'); ?></p>
-          <p class="works-content-text c-vertical-bar">一言：<?php echo nl2br(post_custom('一言')); ?></p>
+            <p class="works-content-text c-vertical-bar">タイトル：<?php the_title(); ?></p>
+            <p class="works-content-text c-vertical-bar">制作期間：<?php echo post_custom('制作期間'); ?></p>
+            <p class="works-content-text c-vertical-bar">使用スキル：<?php echo post_custom('使用スキル'); ?></p>
+            <p class="works-content-text c-vertical-bar">一言：<?php echo nl2br(post_custom('一言')); ?></p>
         </div>
 
         <?php
@@ -163,7 +163,6 @@
           class="profile-subtitle c-section-subtitle c-section-subtitle--bgwhite c-horizontal-bar c-horizontal-bar--bgwhite">
           自己紹介</p>
       </div>
-
       <div class="profile-wrapper">
         <div class="profile-content c-frame">
           <h3 class="profile-content-title">About</h3>
@@ -176,13 +175,21 @@
               <p class="profile-name-jp">
                 齋藤知真
 
-                <a href="https://twitter.com/_kazuuma" class="profile-twitter">
-
-                  <svg class="profile-twitter-icon" height="35" viewBox="0 0 512 512" width="35"
-                    xmlns="http://www.w3.org/2000/svg">
+                <a href="https://twitter.com/kazu__tech" class="profile-media profile-twitter">
+                  <svg class="profile-media__svg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" width="35"
+                    height="35">
                     <path
                       d="m256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zm4.926 217.391c.084.004.164.021.25.025-.875-3.752-1.328-7.664-1.328-11.682 0-28.307 22.951-51.258 51.262-51.258 14.742 0 28.063 6.225 37.414 16.188 9.6-1.89 18.684-5.174 27.129-9.523 1.781-.864 3.566-1.723 5.32-2.674-3.039 9.334-8.744 17.412-16.141 23.532-2.004 1.576-4.062 3.098-6.326 4.344.154-.018.304-.052.457-.071-.15.093-.275.22-.428.312 8.402-1.005 16.459-3.051 24.111-5.942 1.715-.592 3.428-1.191 5.127-1.852-6.842 10.159-15.453 19.095-25.375 26.259.098 2.197.148 4.406.148 6.631 0 67.736-51.558 145.842-145.844 145.842-28.947 0-55.891-8.484-78.576-23.028 4.01.473 8.092.715 12.229.715 19.136 0 37.014-5.269 52.383-14.34 3.871-2.23 7.658-4.639 11.273-7.365-.098-.002-.187-.026-.285-.028.094-.073.196-.136.289-.209-19.422-.358-36.184-11.539-44.574-27.747-1.25-2.489-2.32-5.096-3.164-7.831 3.086.58 6.246.898 9.5.898 3.391 0 6.666-.436 9.871-1.063 1.197-.168 2.406-.308 3.586-.502-.156-.032-.293-.1-.449-.133.162-.042.336-.056.496-.1-23.449-4.709-41.119-25.428-41.119-50.262 0-.196.002-.387.004-.58l.024-.055c5.521 3.064 11.693 5.092 18.23 5.94 1.609.269 3.221.516 4.832.657-.11-.074-.205-.164-.314-.238.152.006.297.036.447.041-13.754-9.191-22.803-24.883-22.803-42.666 0-8.142 1.988-15.787 5.367-22.623.539-1.028 1.018-2.078 1.637-3.074 22.711 27.822 55.516 46.971 92.801 52.15 4.16.605 8.332 1.144 12.553 1.388-.006-.024-.008-.051-.014-.076z"
-                      fill="#000000" fill-opacity="0.9" />
+                      fill="#000" fill-opacity="0.9" />
+                  </svg>
+                </a>
+
+                <a href="https://github.com/Kazuuma-19" class="profile-media profile-github">
+                  <svg class="profile-media__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="35"
+                    height="35">
+                    <path
+                      d="m12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57 4.801-1.574 8.236-6.074 8.236-11.369 0-6.627-5.373-12-12-12"
+                      fill="#000" fill-opacity="0.9" />
                   </svg>
                 </a>
               </p>
@@ -195,11 +202,11 @@
             出身：東京都
           </p>
           <p class="profile-detail c-vertical-bar">
-            趣味：ランニング、日向坂46、Macbook効率化
+            趣味：ランニング、Macbook効率化
           </p>
           <p class="profile-detail">
             ポートフォリオをご覧いただきありがとうございます。<br>
-            タイトルにもある通り、新しいことへの探求を信念に活動しています。<br>
+            タイトルにもある通り、「新しいことへの探求」を信念に活動しています。<br>
             何かございましたら、ご遠慮無くお問い合わせください。
           </p>
         </div>
@@ -227,6 +234,12 @@
             </div>
 
             <div class="profile-skill-language">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/icons-javascript.svg" alt="JavaScriptアイコン"
+                class="profile-skill-icon" width="100" height="100">
+              <p class="profile-skill-explain">JavaScript</p>
+            </div>
+
+            <div class="profile-skill-language">
               <img src="<?php echo get_template_directory_uri(); ?>/img/icons-jquery.svg" alt="jQueryアイコン"
                 class="profile-skill-icon" width="100" height="100">
               <p class="profile-skill-explain">jQuery</p>
@@ -242,6 +255,18 @@
               <img src="<?php echo get_template_directory_uri(); ?>/img/icons-xd.svg" alt="XDアイコン"
                 class="profile-skill-icon" width="100" height="100">
               <p class="profile-skill-explain">Adobe XD</p>
+            </div>
+
+            <div class="profile-skill-language">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/icons-vue.svg" alt="Vueアイコン"
+                class="profile-skill-icon" width="100" height="100">
+              <p class="profile-skill-explain">Vue</p>
+            </div>
+
+            <div class="profile-skill-language">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/icons-laravel.svg" alt="Laravelアイコン"
+                class="profile-skill-icon" width="100" height="100">
+              <p class="profile-skill-explain">Laravel</p>
             </div>
           </div>
         </div>
